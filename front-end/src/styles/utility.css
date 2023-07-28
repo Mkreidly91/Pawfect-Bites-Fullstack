@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'PiePie';
+  src: url('../assets/fonts/Piepie.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* colors */
+  --pets-grey: rgba(26, 26, 26, 0.6);
+  --pets-black: #1a1a1a;
+  --pets-yellow: #eaf586;
+  --pets-off-white: #fbfbf9;
+  --pets-gradient: linear-gradient(
+    180deg,
+    #ededf5 0%,
+    rgba(246, 246, 210, 0.24) 100%
+  );
+}
+
+.inter {
+  font-family: 'Inter', sans-serif !important;
+}
+.piepie {
+  font-family: 'PiePie';
+}
+button {
+  cursor: pointer;
+}
+/* font-colors */
+.grey {
+  color: var(--pets-grey);
+}
+.black {
+  color: var(--pets-black);
+}
+.yellow {
+  color: var(--pets-yellow);
+}
+.gradient {
+  color: var(--pets-gradient);
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-24 {
+  font-size: 24px;
+}
+.fs-28 {
+  font-size: 28px;
+}
+.fs-48 {
+  font-size: 48px;
+}
+.fs-64 {
+  font-size: 64px;
+}
+
+/* Flex */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-start {
+  justify-content: start;
+}
+.justify-end {
+  justify-content: end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: start;
+}
+.items-end {
+  align-items: end;
+}
+.grow {
+  flex-grow: 1;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+.justify-self-center {
+  justify-self: center;
+}
+.justify-self-start {
+  justify-self: start;
+}
+.align-self-end {
+  align-self: end;
+}
+.align-self-start {
+  align-self: start;
+}
+.align-self-center {
+  align-self: center;
+}
+
+.br-50 {
+  border-radius: 50%;
+}
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
