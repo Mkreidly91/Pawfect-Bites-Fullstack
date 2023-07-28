@@ -60,11 +60,27 @@ button {
 .fs-28 {
   font-size: 28px;
 }
+.fs-42 {
+  font-size: 42px;
+}
 .fs-48 {
   font-size: 48px;
 }
 .fs-64 {
   font-size: 64px;
+}
+
+.bg-grey {
+  background-color: var(--pets-grey);
+}
+.bg-black {
+  background-color: var(--pets-black);
+}
+.bg-yellow {
+  background-color: var(--pets-yellow);
+}
+.bg-gradient {
+  background-color: var(--pets-gradient);
 }
 
 /* Flex */
