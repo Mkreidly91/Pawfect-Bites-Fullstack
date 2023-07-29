@@ -51,12 +51,11 @@
           <div class="sign-up input-container flex flex-col">
             <label for="">EMAIL ADDRESS</label>
             <input
-              type="text"
+              type="email"
               name=""
               id="sign-in-email"
               placeholder="Please Enter your email"
             />
-            <div class="error"></div>
           </div>
           <div class="sign-up input-container flex flex-col">
             <label for="">PASSWORD</label>
@@ -66,7 +65,8 @@
               id="sign-in-password"
               placeholder="Please Enter your password"
             />
-            <div class="error"></div>
+
+            <div id="sign-in-error" class="error"></div>
             <div class="form-buttons">
               <button class="form-button" id="sign-in-button">LOG IN</button>
               <button class="form-button" id="sign-up-button">SIGN UP</button>
@@ -79,20 +79,19 @@
             <input
               type="text"
               name=""
-              id="sign-in-email"
+              id="sign-up-email"
               placeholder="Please Enter your email"
             />
-            <div class="error"></div>
           </div>
           <div class="sign-up input-container flex flex-col">
             <label for="">PASSWORD</label>
             <input
               type="password"
               name=""
-              id="sign-in-password"
+              id="sign-up-password"
               placeholder="Please enter your password"
             />
-            <div class="error"></div>
+            <div id="sign-up-error" class="error"></div>
             <div class="form-buttons">
               <button class="form-button" id="sign-up-verify">SIGN UP</button>
             </div>
@@ -125,5 +124,6 @@
         </div>
       </div>
     </footer>
+    <script src="../src/scripts/sign-in.js"></script>
   </body>
 </html>
