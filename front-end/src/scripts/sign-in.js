@@ -41,6 +41,13 @@ window.addEventListener('load', () => {
         body: JSON.stringify(body),
       });
       const user = await response.json();
+      if (user.error === 'Unauthorized') {
+        console.log(user);
+        error_sign_in.innerText = 'Invalid Email or password';
+        return;
+      }
+
+      console.log(user);
       localStorage.setItem('user_info', JSON.stringify(user));
       window.location.href = '../index.html';
     } catch (error) {
@@ -64,10 +71,14 @@ window.addEventListener('load', () => {
         },
         body: JSON.stringify(body),
       });
-      const status = await response.json();
-      if (status.error) {
-        error_sign_up.innerText = `${status.error}`;
+
+      const { error, message } = await response.json();
+
+      if (error) {
+        error_sign_up.innerText = `${error}`;
         return;
+      } else {
+        //Close modal and prompt user to sign in.
       }
 
       console.log(status);

@@ -28,7 +28,7 @@ class AuthController extends Controller
 
         if (!$token) {
             return response()->json([
-                'message' => 'Unauthorized',
+                'error' => 'Unauthorized',
             ], 401);
         }
 
@@ -66,7 +66,7 @@ class AuthController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
-        // $e->getMessage()
+
     }
 
     public function logout()
