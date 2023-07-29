@@ -35,3 +35,20 @@ body {
   padding: 12px 40px;
   font-weight: 600;
 }
+
+/* Info section */
+.info-section {
+  padding: 60px;
+  justify-content: center;
+  gap: 50px;
+}
+.info-item {
+  width: 300px;
+  gap: 24px;
+}
+.info-icon {
+  width: 100px;
+}
+.info-section p {
+  max-width: 400px;
+}

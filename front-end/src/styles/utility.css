@@ -27,6 +27,7 @@ button {
   border: none;
   width: fit-content;
 }
+
 :root {
   /* colors */
   --pets-grey: rgba(26, 26, 26, 0.6);
@@ -190,4 +191,8 @@ button {
 }
 .show {
   display: block !important;
+}
+
+.text-center {
+  text-align: center;
 }
