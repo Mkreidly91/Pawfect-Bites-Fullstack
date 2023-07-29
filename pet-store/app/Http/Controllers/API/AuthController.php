@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use PhpParser\Node\Stmt\TryCatch;
 
 class AuthController extends Controller
 {
@@ -42,22 +44,29 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6',
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        return response()->json([
-            'message' => 'User created successfully',
-            'user' => $user
-        ]);
+            return response()->json([
+                'message' => 'User created successfully',
+                'user' => $user
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage()
+            ], 500);
+        }
+        // $e->getMessage()
     }
 
     public function logout()
