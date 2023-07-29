@@ -130,7 +130,9 @@ button {
 .bg-beige {
   background-color: var(--pets-beige);
 }
-
+.bg-white {
+  background-color: white;
+}
 .bg-gradient {
   background-color: var(--pets-gradient);
 }
@@ -195,6 +197,9 @@ button {
 }
 .br-8 {
   border-radius: 8px;
+}
+.br-16 {
+  border-radius: 16px;
 }
 
 /* on-off */
