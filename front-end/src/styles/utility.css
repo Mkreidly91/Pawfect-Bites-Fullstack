@@ -22,8 +22,7 @@ a {
 }
 
 button {
-  background-color: none;
-  appearance: none;
+  /* appearance: none; */
   border: none;
   width: fit-content;
 }
@@ -126,6 +125,9 @@ button {
 }
 .bg-yellow-light {
   background-color: var(--pets-yellow-light);
+}
+.bg-yellow {
+  background-color: var(--pets-yellow);
 }
 .bg-beige {
   background-color: var(--pets-beige);
