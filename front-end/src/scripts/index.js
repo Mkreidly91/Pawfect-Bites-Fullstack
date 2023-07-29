@@ -1,1 +1,1 @@
-//Index
+document.addEventListener('DOMContentLoaded', () => {});

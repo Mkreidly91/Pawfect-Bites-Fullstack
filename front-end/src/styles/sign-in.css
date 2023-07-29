@@ -1,0 +1,55 @@
+body {
+  font-family: 'Inter';
+}
+
+.input-form {
+  gap: 10px;
+  height: 100%;
+}
+.sign-in-wrapper {
+  /* background-color: red; */
+  height: 100%;
+  border: 1px solid black;
+  gap: 20px;
+}
+
+label {
+  font-size: 0.8rem;
+}
+input {
+  padding: 3px 5px;
+}
+input::placeholder {
+  font-size: 0.76rem;
+}
+
+.input-container {
+  gap: 5px;
+}
+
+.form-buttons {
+}
+.form-button {
+  padding: 0.5rem 1rem;
+}
+
+footer {
+  padding: 100px 0;
+}
+.footer-socials {
+  gap: 48px;
+}
+
+.footer-social {
+  gap: 20px;
+}
+.social-title {
+  font-size: 25px;
+}
+.social-tag {
+  font-size: 16px;
+}
+
+.error {
+  margin-top: 8px;
+}
