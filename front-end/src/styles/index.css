@@ -52,3 +52,14 @@ body {
 .info-section p {
   max-width: 400px;
 }
+
+/* Products section */
+
+.products-tag {
+  font-size: 16px;
+  letter-spacing: 4px;
+}
+
+.products-title {
+  font-size: 48px;
+}
