@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../src/styles/utility.css" />
+    <link rel="stylesheet" href="../src/styles/navbar.css" />
+    <link rel="stylesheet" href="../src/styles/cart.css" />
+    <title>Document</title>
+  </head>
+  <body class="flex flex-col">
+    <header>
+      <nav class="navbar flex justify-between items-center inter">
+        <div class="logo fw-900">Pawfect Bites</div>
+        <div class="nav-mid flex items-center justify-between">
+          <span class="fw-600">Cats</span>
+          <span class="fw-600">Dogs</span>
+          <span class="fw-600">Accessories</span>
+        </div>
+        <div class="nav-icons flex items-center">
+          <img
+            class="nav-icon"
+            src="../src/assets/icons/nav/tabler-icon-search.svg"
+            alt=""
+          />
+          <button id="nav-sign-out">Sign Out</button>
+          <img
+            class="nav-icon"
+            src="../src/assets/icons/nav/tabler-icon-user-circle.svg"
+            alt=""
+          />
+          <a href="./views/cart.html">
+            <img
+              class="nav-icon"
+              src="../src/assets/icons/nav/Outlined.svg"
+              alt=""
+            />
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main class="flex grow">
+      <div class="cart-wrapper flex grow">
+        <div class="cart" id="cart">
+          <div class="cart-header">Bag</div>
+          <!-- Cart Item -->
+          <div class="item-container flex flex-col" id="item-container">
+            <div class="cart-item flex">
+              <div class="flex items-center">
+                <img src="" alt="" />
+                <div class="card-info flex flex-col">
+                  <div class="card-info-wrapper flex flex-col">
+                    <span class="title"></span>
+                    <span class="price"></span>
+                  </div>
+                  <div class="quantity">
+                    <span id="plus">+</span>
+                    <button>2</button>
+                    <span id="minus">-</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary grow flex justify-center">
+          <div class="summary-wrapper flex flex-col">
+            <div class="summary-header fw-700">Summary</div>
+            <div class="total-wrapper flex justify-between">
+              <span class="fw-500">Total</span>
+              <span id="total">$100</span>
+            </div>
+            <button class="checkout br-8 bg-yellow">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="flex justify-center bg-yellow-light">
+      <div class="footer-socials flex">
+        <div class="footer-social flex justify-center items-center">
+          <img src="../src/assets/icons/socials/insta.svg" alt="" />
+          <div class="social-text flex flex-col">
+            <span class="social-title fw-500"> Instagram </span>
+            <span class="social-tag fw-400"> @PawfectBites</span>
+          </div>
+        </div>
+        <div class="footer-social flex justify-center items-center">
+          <img src="../src/assets/icons/socials/tiktok.svg" alt="" />
+          <div class="social-text flex flex-col">
+            <span class="social-title fw-500"> Tiktok </span>
+            <span class="social-tag fw-400"> @PawfectBites</span>
+          </div>
+        </div>
+        <div class="footer-social flex justify-center items-center">
+          <img src="../src/assets/icons/socials/twitter.svg" alt="" />
+          <div class="social-text flex flex-col">
+            <span class="social-title fw-500"> Twitter </span>
+            <span class="social-tag fw-400"> @PawfectBites</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../src/scripts/signout.js"></script>
+  <script src="../src/components/cart-item.js"></script>
+  <script src="../src/scripts/cart.js"></script>
+</html>

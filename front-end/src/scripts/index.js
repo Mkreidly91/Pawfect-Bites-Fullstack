@@ -15,6 +15,21 @@ const fetchProducts = async (category = '') => {
     console.log(error);
   }
 };
+const addToCart = async () => {
+  try {
+    const items_req = await fetch(`http://127.0.0.1:8000/api/cart/`);
+    const allProducts = await items_req.json();
+
+    if (allProducts) {
+      const { data } = allProducts;
+
+      console.log(data);
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 const populate = (container, data) => {
   container.innerHTML = '';
   data.forEach((element) => {
