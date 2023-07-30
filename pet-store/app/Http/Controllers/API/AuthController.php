@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\User;
+use App\Models\Cart;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -57,9 +58,14 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
+            $cart = Cart::create([
+                'user_id' => $user->id,
+            ]);
+
             return response()->json([
                 'message' => 'User created successfully',
-                'user' => $user
+                'user' => $user,
+                'cart' => $cart
             ]);
         } catch (Exception $e) {
             return response()->json([

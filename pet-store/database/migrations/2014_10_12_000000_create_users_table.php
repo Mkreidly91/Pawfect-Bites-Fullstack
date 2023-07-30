@@ -16,7 +16,8 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role');
+            $table->string('role')->default("user");
+            $table->timestamps();
 
         });
 
@@ -24,6 +25,7 @@ return new class extends Migration {
             $table->id();
             $table->string("category");
             $table->string("tags");
+            $table->timestamps();
         });
 
         Schema::create('products', function (Blueprint $table) {
@@ -33,14 +35,25 @@ return new class extends Migration {
             $table->decimal("price");
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->timestamps();
+
         });
 
-
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['user_id', 'product_id']);
+            $table->timestamps();
+        });
 
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
 
         });
         Schema::create('cart_items', function (Blueprint $table) {
@@ -49,8 +62,8 @@ return new class extends Migration {
             $table->unsignedBigInteger('product_id');
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->timestamps();
         });
-
 
     }
 
@@ -62,7 +75,9 @@ return new class extends Migration {
         Schema::dropIfExists('users');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('products');
+        Schema::dropIfExists('favorites');
         Schema::dropIfExists('carts');
         Schema::dropIfExists('cart_items');
+
     }
 };
