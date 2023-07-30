@@ -1,26 +1,52 @@
 body {
   font-family: 'Inter';
 }
+:root {
+  --input-font-size: 1rem;
+  --label-font-size: 1rem;
+  --placeholder-font-size: 0.8rem;
+}
+input,
+select,
+textarea {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: none;
+  /* border-radius: 0.25rem; */
+}
 
-.input-form {
-  gap: 10px;
-  height: 100%;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
 }
 .sign-in-wrapper {
   /* background-color: red; */
   height: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   gap: 20px;
+  width: 50%;
+}
+
+.input-form {
+  gap: 20px;
+  height: 100%;
+  border: 1px solid black;
+  height: fit-content;
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 300px;
 }
 
 label {
-  font-size: 0.8rem;
+  font-size: var(--label-font-size);
 }
 input {
   padding: 3px 5px;
+  font-size: var(--input-font-size);
 }
 input::placeholder {
-  font-size: 0.76rem;
+  font-size: var(--placeholder-font-size);
 }
 
 .input-container {
@@ -31,10 +57,11 @@ input::placeholder {
 }
 .form-button {
   padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
 }
 
 footer {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 .footer-socials {
   gap: 48px;

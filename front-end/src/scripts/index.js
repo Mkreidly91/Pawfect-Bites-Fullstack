@@ -23,6 +23,8 @@ const populate = (container, data) => {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const info = JSON.parse(localStorage.getItem('user_info'));
+  console.log(info);
   const products_wrapper = document.getElementById('products_wrapper');
   const cats = document.getElementById('cats');
   const dogs = document.getElementById('dogs');
