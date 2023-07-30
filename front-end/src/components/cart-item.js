@@ -1,8 +1,8 @@
 function cartItem(item, qtt) {
-  const { title, price } = item.product;
+  const { title, price, id } = item.product;
   return `
  
-    <div class="cart-item flex items-center">
+    <div class="cart-item flex items-center" id=${id}>
         <img class="card-img" src="../src/assets/images/sofities.jpg" alt="" />
         <div class="card-info flex flex-col">
         <div class="card-info-wrapper flex flex-col">
@@ -11,7 +11,7 @@ function cartItem(item, qtt) {
       </div>
       <div class="quantity flex ">
       <span class="quantity-item quantity-control fw-500" id="minus">-</span>
-      <span class="quantity-item number fw-500 ">2</span>
+      <span id="qt-${id}" class="quantity-item number fw-500">2</span>
       <span class="quantity-item quantity-control fw-500" id="plus">+</span>
       </div>
        </div>
