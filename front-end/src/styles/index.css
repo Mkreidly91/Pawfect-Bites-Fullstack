@@ -69,13 +69,33 @@ body {
 .products-wrapper {
   padding: 50px;
   gap: 74px;
+
   /* max-width: 90%; */
 }
+.categories {
+  width: 100%;
+  padding: 1rem;
+  gap: 50px;
+  justify-content: center;
+}
 
+.categories > span {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.categories span:hover {
+  background-color: var(--pets-yellow);
+  outline: 1px solid black;
+}
+.active {
+  background-color: var(--pets-yellow);
+  outline: 1px solid black;
+}
 .card {
   width: 300px;
-  padding: 38px 20px;
-  gap: 40px;
+  padding: 20px;
+  gap: 20px;
 }
 .card-title {
   font-size: 20px;

@@ -111,20 +111,29 @@
               >Wagging Tails and Satisfied Purrs</span
             >
           </div>
-
-          <div class="products-wrapper flex wrap justify-center">
+          <div class="categories flex justify around">
+            <span id="all" class="fw-600">All</span>
+            <span id="cats" class="fw-600">Cats</span>
+            <span id="dogs" class="fw-600">Dogs</span>
+          </div>
+          <div
+            id="products_wrapper"
+            class="products-wrapper flex wrap justify-center"
+          >
             <!-- card -->
             <div class="card flex flex-col items-center bg-white br-16">
-              <div class="card-header flex flex-col">
-                <!-- to be generated -->
-                <span class="card-title fw-500">Multivitamin 18+</span>
-                <span class="card-description fw-400 grey"
-                  >Personalized perscription skin care</span
-                >
-              </div>
+              <div class="card-body flex flex-col">
+                <div class="card-header flex flex-col">
+                  <!-- to be generated -->
+                  <span class="card-title fw-500">Multivitamin 18+</span>
+                  <span class="card-description fw-400 grey"
+                    >Personalized perscription skin care</span
+                  >
+                </div>
 
-              <!-- to be generatetd -->
-              <img src="./src/assets/images/sofities.jpg" alt="" />
+                <!-- to be generatetd -->
+                <img src="./src/assets/images/sofities.jpg" alt="" />
+              </div>
               <button class="card-button br-8 bg-yellow">
                 Add to cart - $<span class="card-price">12</span>
               </button>
@@ -242,6 +251,7 @@
       </div>
     </footer>
     <script src="./src/scripts/signout.js"></script>
+    <script src="./src/components/card.js"></script>
     <script src="./src/scripts/index.js"></script>
   </body>
 </html>
