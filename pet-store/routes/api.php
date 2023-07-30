@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
@@ -27,4 +28,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('products/{category?}/{userId?}', [ProductController::class, 'getAll']);
+Route::get('/products/{category?}/{userId?}', [ProductController::class, 'getAll']);
+
+Route::prefix('cart')->group(function () {
+    Route::get('/{userId}', [CartController::class, 'get']);
+    Route::post('/add', [CartController::class, 'add']);
+    Route::post('/delete', [CartController::class, 'delete']);
+
+});
