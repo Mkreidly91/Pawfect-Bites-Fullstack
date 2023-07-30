@@ -27,7 +27,6 @@ class ProductController extends Controller
         // Now you have a collection of products, each with its associated category and favorites
         return response()->json([
             'data' => $products,
-            'category' => $category
         ]);
     }
 }
