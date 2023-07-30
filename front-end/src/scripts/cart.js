@@ -23,9 +23,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   let info = localStorage.getItem('user_info');
   info = JSON.parse(info);
   const container = document.getElementById('item-container');
+  const total_container = document.getElementById('total');
   console.log(info.user.id);
   const cart = await fetchProducts(info.user.id);
   console.log(cart);
 
   populate(container, cart);
+  const calculateTotal = () => {
+    let total = 0;
+    cart.forEach((item) => (total += Number(item.product.price)));
+    total_container.innerText = `$${total}`;
+  };
+  calculateTotal();
 });
