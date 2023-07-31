@@ -27,7 +27,7 @@
             <span class="fw-600">DASHBOARD</span>
           </div>
           <div class="sidebar-item flex items-center items-center">
-            <div class="flex">
+            <div class="flex gap-10">
               <img
                 class="sidebar-icon"
                 src="../src/assets/icons/dashboard/products.svg"
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="sidebar-item flex items-center items-center">
-            <div class="flex">
+            <div class="flex gap-10">
               <img
                 class="sidebar-icon"
                 src="../src/assets/icons/dashboard/dashboaard.svg"
@@ -53,10 +53,11 @@
               <span class="fw-600">CATEGORIES</span>
             </div>
 
-            <div class="select" id="products-list">
+            <div class="select" id="categories-list">
               <select name="" id="">
                 <option value=""></option>
-                <option value="">FRISKIES</option>
+                <option value="1">Cat</option>
+                <option value="2">Dog</option>
               </select>
             </div>
           </div>
@@ -74,22 +75,27 @@
             <div class="input-wrapper flex flex-col">
               <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Product Name</label>
-                <input type="text" name="" id="" />
+                <input type="text" name="" id="title" />
               </div>
 
               <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Description</label>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea
+                  name=""
+                  id="description"
+                  cols="30"
+                  rows="10"
+                ></textarea>
               </div>
 
               <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Category</label>
-                <input type="text" name="" id="" />
+                <input type="text" name="" id="category" />
               </div>
-              <div class="input-container flex flex-col">
+              <!-- <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Brand Name</label>
                 <input type="text" name="" id="" />
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="board-right flex flex-col items-center justify-between">
