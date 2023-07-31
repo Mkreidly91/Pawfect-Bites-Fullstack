@@ -29,6 +29,7 @@ textarea {
   padding: 16px;
 }
 
+/* sidebar */
 .logo {
   font-size: 42px;
   text-align: left;
@@ -36,30 +37,95 @@ textarea {
 
 .sidebar {
   width: 300px;
-  background-color: red;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 22px;
+  gap: 32px;
+}
+.item-wrapper {
+  gap: 32px;
+}
+.icon-contianer {
+  width: 20px;
+  height: 20px;
+}
+.sidebar-item {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+select {
+  border: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  outline: none;
+  background-color: transparent;
+}
+select:focus {
+  outline: none;
 }
 
 /* left */
-.board-left {
+.input-wrapper {
+  gap: 24px;
 }
 .page-header {
   padding: 22px 60px;
+  background-color: white;
+  border-left: 1px solid #e7e7e3;
 }
 .input-container {
   gap: 16px;
 }
 
+.board-header {
+  margin-left: 24px;
+  font-size: 1.3rem;
+  padding-top: 24px;
+}
 /* right */
 .board-right {
-  padding: 50px;
+  gap: 24px;
 }
 .img-container {
   width: 400px;
+  gap: 24px;
 }
 .img-container img {
   width: 300px;
   height: auto;
+}
+
+/* File Input */
+#img-input {
+  max-width: 300px;
+}
+
+.button-container {
+  gap: 16px;
+}
+.crud-button {
+  padding: 0.5rem 1.5rem;
+}
+.crud-button:nth-child(1) {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.crud-button:nth-child(2) {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.crud-button:nth-child(3) {
+  outline: 1px solid black;
+  color: black;
+  border-radius: 5px;
+  text-transform: uppercase;
 }

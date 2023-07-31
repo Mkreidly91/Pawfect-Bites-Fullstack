@@ -12,20 +12,66 @@
     <header></header>
     <main class="flex inter">
       <div class="sidebar flex flex-col">
-        <div class="logo fw-900 inter">Pawfect</div>
-        <div class="logo fw-900 inter">Bites</div>
-      </div>
+        <div class="logo-wrapper">
+          <div class="logo fw-900 inter">Pawfect</div>
+          <div class="logo fw-900 inter">Bites</div>
+        </div>
+        <div class="item-wrapper flex flex-col">
+          <div class="sidebar-item flex items-center items-center">
+            <img
+              class="sidebar-icon"
+              src="../src/assets/icons/dashboard/dashboaard.svg"
+              alt=""
+            />
 
+            <span class="fw-600">DASHBOARD</span>
+          </div>
+          <div class="sidebar-item flex items-center items-center">
+            <div class="flex">
+              <img
+                class="sidebar-icon"
+                src="../src/assets/icons/dashboard/products.svg"
+                alt=""
+              />
+              <span class="fw-600">PRODUCTS</span>
+            </div>
+
+            <div class="select" id="products-list">
+              <select name="" id="">
+                <option value=""></option>
+                <option value="">FRISKIES</option>
+              </select>
+            </div>
+          </div>
+          <div class="sidebar-item flex items-center items-center">
+            <div class="flex">
+              <img
+                class="sidebar-icon"
+                src="../src/assets/icons/dashboard/dashboaard.svg"
+                alt=""
+              />
+              <span class="fw-600">CATEGORIES</span>
+            </div>
+
+            <div class="select" id="products-list">
+              <select name="" id="">
+                <option value=""></option>
+                <option value="">FRISKIES</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="board grow">
         <div class="page-header flex justify-end fw-500">
-          <span>admin</span>
+          <span class="fw-600">admin</span>
+        </div>
+        <div class="board-header flex flex-col">
+          <span class="fw-600">Product Details</span>
         </div>
         <div class="board-wrapper flex justify-between">
           <div class="board-left grow flex flex-col">
-            <div class="product-wrapper flex flex-col">
-              <div class="product-wrapper-header flex flex-col">
-                <span class="fw-600">Product Details</span>
-              </div>
+            <div class="input-wrapper flex flex-col">
               <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Product Name</label>
                 <input type="text" name="" id="" />
@@ -35,25 +81,39 @@
                 <label for="" class="fw-600">Description</label>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
               </div>
-            </div>
-            <div class="input-container flex flex-col">
-              <label for="" class="fw-600">Category</label>
-              <input type="text" name="" id="" />
-            </div>
-            <div class="input-container flex flex-col">
-              <label for="" class="fw-600">Brand Name</label>
-              <input type="text" name="" id="" />
+
+              <div class="input-container flex flex-col">
+                <label for="" class="fw-600">Category</label>
+                <input type="text" name="" id="" />
+              </div>
+              <div class="input-container flex flex-col">
+                <label for="" class="fw-600">Brand Name</label>
+                <input type="text" name="" id="" />
+              </div>
             </div>
           </div>
-          <div class="board-right-absolute flex flex-col">
-            <div class="img-container flex justify-center items-center">
+          <div class="board-right flex flex-col items-center justify-between">
+            <div
+              class="img-container flex flex-col justify-center items-center"
+            >
               <img
                 class="board-img"
                 src="../src/assets/images/sofities.jpg"
                 alt=""
               />
+              <input
+                id="img-input"
+                type="file"
+                id="images"
+                accept="image/*"
+                required
+              />
             </div>
-            <input type="file" />
+            <div class="button-container flex">
+              <span class="crud-button inter" id="update">Update</span>
+              <span class="crud-button inter" id="delete">Delete</span>
+              <span class="crud-button inter" id="cancel">Cancel</span>
+            </div>
           </div>
         </div>
       </div>
