@@ -24,7 +24,7 @@ class CartController extends Controller
         }
 
         return response()->json([
-            "items" => $cartItems
+            "data" => $cartItems
         ]);
 
 
@@ -56,6 +56,7 @@ class CartController extends Controller
     {
         $userId = $request->input('user_id');
         $productId = $request->input('product_id');
+        $count = $request->input('count');
         $user = User::find($userId);
         $cart = $user->cart;
 
@@ -63,12 +64,27 @@ class CartController extends Controller
 
         if ($cart) {
             // If the cart exists, delete the cart item corresponding to the product
-            $cart->cartItems()
-                ->where('product_id', $productId)->delete();
+            $newCart = '';
+            if ($count) {
+                $cartItem = $cart->cartItems()
+                    ->where('product_id', $productId)
+                    ->first();
+                if ($cartItem) {
+                    $cartItem->delete();
+                }
+
+            } else {
+                $cart->cartItems()
+                    ->where('product_id', $productId)->delete();
+            }
+
 
 
             // Return a response indicating the product was removed from the cart
-            return response()->json(['message' => 'Success']);
+            return response()->json([
+                'message' => 'Success',
+                'data' => $cart->cartItems()->with('product')->get()
+            ]);
         }
 
         // Return a response indicating the user's cart was not found
