@@ -28,31 +28,44 @@ class ProductController extends Controller
             'data' => $products
         ]);
     }
+    public function getFromId($id = null)
+    {
+
+        if ($id === null) {
+            return response()->json([
+                'error' => 'Product ID not provided'
+            ], 400);
+        }
+        $product = Product::find($id);
+
+        if ($product === null) {
+            return response()->json([
+                'error' => 'Product not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'data' => $product
+        ]);
+    }
 
     public function add(Request $request)
     {
+
         $title = $request->input("title");
+
         $description = $request->input("description");
-        $price = $request->input(intval("price"));
+        $price = $request->input("price");
         $img = $request->input("img");
-        $category = $request->input(intval("category_id"));
+        $category = $request->input("category_id");
 
         $product = new Product();
-
-        // Check if the field exists in the request before assigning the value
-
 
         $product->title = $title;
         $product->description = $description;
         $product->price = $price;
-        $product->img = $img;
+        $product->image = $img;
         $product->category_id = $category;
-
-        $product->save();
-
-        return response()->json([
-            'message' => 'Product added successfully'
-        ]);
 
         $product->save();
 
@@ -64,35 +77,19 @@ class ProductController extends Controller
 
     public function update(Request $request, $productId)
     {
-        // Validate the input data (you can add more validation rules as needed)
-        // $request->validate([
-        //     'title' => 'required|string|max:255',
-        //     'description' => 'required|string',
-        //     'price' => 'required|numeric',
-        //     'img' => 'required|string',
-        //     'category_id' => 'required|integer',
-        // ]);
-
-        // if ($request->errors()) {
-        //     return response()->json([
-        //         "errors" => $request->errors()
-        //     ]);
-        // }
-
-        // Find the product by its ID
         $product = Product::find($productId);
 
-        // Check if the product exists
+
         if (!$product) {
             return response()->json(['message' => 'Product not found'], 404);
         }
 
-        // Retrieve the input values from the request
+
         $title = $request->input("title");
         $description = $request->input("description");
         $price = $request->input("price");
         $img = $request->input("img");
-        $category = $request->input("category_id");
+        $category = $request->input("productId");
 
         if ($title) {
             $product->title = $title;
@@ -100,27 +97,22 @@ class ProductController extends Controller
 
         if ($description) {
             $product->description = $description;
-
         }
 
         if ($price) {
             $product->price = $price;
-
         }
 
         if ($img) {
-            $product->img = $img;
-
+            $product->image = $img;
         }
 
         if ($category) {
             $product->category_id = $category;
         }
 
-        // Save the updated product to the database
-        $product->save();
 
-        // Return a response indicating success
+        $product->save();
         return response()->json([
             'message' => 'Product updated successfully',
         ]);
@@ -129,18 +121,16 @@ class ProductController extends Controller
 
     public function delete($productId)
     {
-        // Find the product by its ID
+
+
         $product = Product::find($productId);
 
-        // Check if the product exists
         if (!$product) {
             return response()->json(['message' => 'Product not found'], 404);
         }
 
-        // Delete the product
         $product->delete();
 
-        // Return a response indicating success
         return response()->json([
             'message' => 'Product deleted successfully',
         ]);

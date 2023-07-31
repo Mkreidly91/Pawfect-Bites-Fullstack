@@ -36,9 +36,9 @@ Route::prefix('cart')->group(function () {
 
 });
 
-Route::prefix('products')->group(function () {
-    Route::get('/{category?}/{userId?}', [ProductController::class, 'get']);
-    Route::post('/add', [ProductController::class, 'add']);
-    Route::post('/delete/{productId}', [ProductController::class, 'delete']);
-    Route::post('/update/{productId}', [ProductController::class, 'update']);
-});
+
+Route::get('/products/{category?}/{userId?}', [ProductController::class, 'get']);
+Route::post('/add', [ProductController::class, 'add']);
+Route::post('/updateProduct/{productId}', [ProductController::class, 'update']);
+Route::post('/deleteProduct/{productId}', [ProductController::class, 'delete']);
+Route::get('/getFromId/{productId}', [ProductController::class, 'getFromId']);
