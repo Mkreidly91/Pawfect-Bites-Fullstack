@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// cart
 Route::prefix('cart')->group(function () {
     Route::get('/{userId}', [CartController::class, 'get']);
     Route::post('/add', [CartController::class, 'add']);
@@ -36,9 +37,14 @@ Route::prefix('cart')->group(function () {
 
 });
 
-
+// Products
 Route::get('/products/{category?}/{userId?}', [ProductController::class, 'get']);
 Route::post('/add', [ProductController::class, 'add']);
 Route::post('/updateProduct/{productId}', [ProductController::class, 'update']);
 Route::post('/deleteProduct/{productId}', [ProductController::class, 'delete']);
 Route::get('/getFromId/{productId}', [ProductController::class, 'getFromId']);
+
+// Favs
+Route::get('/favourites/get/{userId}', [FavoriteController::class, 'get']);
+Route::post('/favourites/add', [FavoriteController::class, 'add']);
+Route::post('/favourites/remove', [FavoriteController::class, 'remove']);
