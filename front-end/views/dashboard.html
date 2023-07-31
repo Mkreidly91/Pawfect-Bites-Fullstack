@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/styles/utility.css" />
+    <link rel="stylesheet" href="../src/styles/navbar.css" />
+    <link rel="stylesheet" href="../src/styles/dashboard.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <header></header>
+    <main class="flex inter">
+      <div class="sidebar flex flex-col">
+        <div class="logo fw-900 inter">Pawfect</div>
+        <div class="logo fw-900 inter">Bites</div>
+      </div>
+
+      <div class="board grow">
+        <div class="page-header flex justify-end fw-500">
+          <span>admin</span>
+        </div>
+        <div class="board-wrapper flex justify-between">
+          <div class="board-left grow flex flex-col">
+            <div class="product-wrapper flex flex-col">
+              <div class="product-wrapper-header flex flex-col">
+                <span class="fw-600">Product Details</span>
+              </div>
+              <div class="input-container flex flex-col">
+                <label for="" class="fw-600">Product Name</label>
+                <input type="text" name="" id="" />
+              </div>
+
+              <div class="input-container flex flex-col">
+                <label for="" class="fw-600">Description</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+              </div>
+            </div>
+            <div class="input-container flex flex-col">
+              <label for="" class="fw-600">Category</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="input-container flex flex-col">
+              <label for="" class="fw-600">Brand Name</label>
+              <input type="text" name="" id="" />
+            </div>
+          </div>
+          <div class="board-right-absolute flex flex-col">
+            <div class="img-container flex justify-center items-center">
+              <img
+                class="board-img"
+                src="../src/assets/images/sofities.jpg"
+                alt=""
+              />
+            </div>
+            <input type="file" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="../src/components/card.js"></script>
+    <script src="../src/scripts/dashboard.js"></script>
+  </body>
+</html>

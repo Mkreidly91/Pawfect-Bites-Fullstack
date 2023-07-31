@@ -1,0 +1,65 @@
+main {
+  height: 100%;
+}
+input,
+select,
+textarea {
+  border: 1px solid #333;
+  background-color: white;
+  border-radius: 0.25rem;
+}
+
+input[type='text'],
+input[type='email'],
+select,
+textarea {
+  font: 1.25rem / 1.5 sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+}
+.board {
+  background-color: #e7e7e3;
+}
+.board-wrapper {
+  margin: 24px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.logo {
+  font-size: 42px;
+  text-align: left;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: red;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 22px;
+}
+
+/* left */
+.board-left {
+}
+.page-header {
+  padding: 22px 60px;
+}
+.input-container {
+  gap: 16px;
+}
+
+/* right */
+.board-right {
+  padding: 50px;
+}
+.img-container {
+  width: 400px;
+}
+.img-container img {
+  width: 300px;
+  height: auto;
+}

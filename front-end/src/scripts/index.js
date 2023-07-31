@@ -15,6 +15,7 @@ const fetchProducts = async (category = '') => {
     console.log(error);
   }
 };
+
 const addProduct = async (args) => {
   const { user_id, product_id } = args;
   console.log(args);
