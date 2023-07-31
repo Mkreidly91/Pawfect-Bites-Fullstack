@@ -4,28 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\Favorite;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class FavoriteController extends Controller
 {
     public function add(Request $request)
     {
-        $productId = $request->input('product_id');
-        $userId = $request->input('user_id');
+        try {
 
-        $favorite = new Favorite();
-        $favorite->product_id = $productId;
-        $favorite->user_id = $userId;
-        $favorite->save();
 
-        return response()->json([
-            'message' => 'Product added to favorites successfully',
-        ]);
+            $productId = $request->input('product_id');
+            $userId = $request->input('user_id');
+
+            $favorite = new Favorite();
+            $favorite->product_id = $productId;
+            $favorite->user_id = $userId;
+            $favorite->save();
+
+            return response()->json([
+                'message' => 'Product added to favorites successfully',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Product already exists',
+            ]);
+        }
     }
     public function remove(Request $request)
     {
-        return response()->json([
-            'data' => "hello",
-        ]);
+
 
         $productId = $request->input('product_id');
         $userId = $request->input('user_id');
@@ -47,11 +54,10 @@ class FavoriteController extends Controller
 
     public function get(Request $request, $userId)
     {
-
-        $favorites = Favorite::where('user_id', $userId)->get();
-
+        $favoriteProductIds = Favorite::where('user_id', $userId)->pluck('product_id');
+        $favoriteProducts = Product::whereIn('id', $favoriteProductIds)->get();
         return response()->json([
-            'data' => $favorites,
+            'data' => $favoriteProducts,
         ]);
     }
 }
