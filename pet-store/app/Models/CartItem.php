@@ -14,13 +14,13 @@ class CartItem extends Model
         'product_id',
     ];
 
-    // Define the relationship with the Cart model
+
     public function cart()
     {
         return $this->belongsTo(Cart::class);
     }
 
-    // Define the relationship with the Product model
+
     public function product()
     {
         return $this->belongsTo(Product::class);

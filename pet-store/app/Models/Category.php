@@ -14,7 +14,7 @@ class Category extends Model
         'tags',
     ];
 
-    // Define the relationship with products
+
     public function products()
     {
         return $this->hasMany(Product::class);
