@@ -26,14 +26,12 @@ class FavoriteController extends Controller
             ]);
         } catch (\Exception $e) {
             return response()->json([
-                'message' => 'Product already exists',
+                'message' => 'Product already in favorites',
             ]);
         }
     }
     public function remove(Request $request)
     {
-
-
         $productId = $request->input('product_id');
         $userId = $request->input('user_id');
 
