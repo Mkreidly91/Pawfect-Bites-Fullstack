@@ -100,6 +100,13 @@ body {
 .card-title {
   font-size: 20px;
 }
+.favourite {
+  position: absolute;
+  width: 40px !important;
+  height: 40px !important;
+  right: 2px;
+  top: -8px;
+}
 .card-description {
   font-size: 16px;
 }

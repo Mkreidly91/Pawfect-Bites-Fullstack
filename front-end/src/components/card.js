@@ -7,7 +7,7 @@ const card = (item) => {
     <div class="card-info flex justify-center items-center">
     <div class =" ">${description}</div>
     </div>
-
+    <img id=${id} class="favourite" src="./src/assets/icons/info/heart.svg" alt="">
     <div class="card-header flex flex-col">
     <!-- to be generated -->
     <span class="card-title fw-500">${title}</span>

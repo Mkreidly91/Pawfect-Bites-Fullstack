@@ -47,6 +47,20 @@ function addEventListeners() {
   const card_buttons = Array.from(
     document.getElementsByClassName('card-button')
   );
+  const favourites = Array.from(document.getElementsByClassName('favourite'));
+  favourites.forEach((button) => {
+    button.addEventListener('click', async () => {
+      let info = localStorage.getItem('user_info');
+      info = JSON.parse(info);
+      const add_obj = {
+        user_id: info.user.id,
+        product_id: Number(e.target.id),
+      };
+      console.log(e.target.id);
+
+      // const newProducts = await addToFavorites(add_obj);
+    });
+  });
 
   console.log(card_buttons);
 
