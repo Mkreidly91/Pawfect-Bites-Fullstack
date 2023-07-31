@@ -42,7 +42,11 @@ window.addEventListener('load', () => {
 
       console.log(user);
       localStorage.setItem('user_info', JSON.stringify(user));
-      window.location.href = '../index.html';
+      if (user.role === 'user') {
+        window.location.href = '../index.html';
+      } else {
+        window.location.href = '../views/dashboard.html';
+      }
     } catch (error) {
       error_sign_in.innerText = 'Invalid Email or password';
     }

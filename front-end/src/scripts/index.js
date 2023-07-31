@@ -8,7 +8,6 @@ const fetchProducts = async (category = '') => {
     if (allProducts) {
       const { data } = allProducts;
 
-      console.log(data);
       return data;
     }
   } catch (error) {
@@ -108,8 +107,6 @@ function addEventListeners() {
     });
   });
 
-  console.log(card_buttons);
-
   card_buttons.forEach((button) => {
     button.addEventListener('click', async (e) => {
       let info = localStorage.getItem('user_info');
@@ -117,7 +114,7 @@ function addEventListeners() {
 
       const add_obj = {
         user_id: info.user.id,
-        product_id: Number(e.target.id),
+        product_id: e.target.id,
       };
 
       const newProducts = await addProduct(add_obj);
@@ -126,8 +123,7 @@ function addEventListeners() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const { user } = JSON.parse(localStorage.getItem('user_info'));
-
+  console.log(user);
   const products_wrapper = document.getElementById('products_wrapper');
   const cats = document.getElementById('cats');
   const dogs = document.getElementById('dogs');

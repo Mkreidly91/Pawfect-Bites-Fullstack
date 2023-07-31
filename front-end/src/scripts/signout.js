@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const user = JSON.parse(localStorage.getItem('user_info'));
   const signout = document.getElementById('nav-sign-out');
 
-  console.log(user);
   if (!user) {
     signout.style.display = 'none';
   } else {
@@ -16,14 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
             Authorization: `Bearer ${user.authorization.token}`,
           },
         });
-
         const status = await res.json();
         if (status.message === 'Successfully logged out') {
           localStorage.clear();
-          location.reload();
         }
-
-        console.log(status);
       } catch (error) {
         console.log(error);
       }
