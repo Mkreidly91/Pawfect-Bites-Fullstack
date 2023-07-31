@@ -14,7 +14,7 @@ const fetchProducts = async (id = '') => {
 
 const deleteProduct = async (args) => {
   const { user_id, product_id, count } = args;
-  console.log(args);
+
   try {
     const items_req = await fetch(`http://127.0.0.1:8000/api/cart/delete`, {
       method: 'POST',
@@ -25,6 +25,26 @@ const deleteProduct = async (args) => {
         user_id,
         product_id,
         count,
+      }),
+    });
+    const newProducts = await items_req.json();
+    return newProducts;
+  } catch (error) {
+    console.log(error);
+  }
+};
+const addProduct = async (args) => {
+  const { user_id, product_id } = args;
+
+  try {
+    const items_req = await fetch(`http://127.0.0.1:8000/api/cart/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_id,
+        product_id,
       }),
     });
     const newProducts = await items_req.json();
@@ -76,6 +96,7 @@ const calculateTotal = (cart, total_container) => {
 
 function addEventListeners() {
   const minusElements = Array.from(document.getElementsByClassName('minus'));
+  const plusElements = Array.from(document.getElementsByClassName('plus'));
   minusElements.forEach((e) => {
     e.addEventListener('click', async () => {
       let info = localStorage.getItem('user_info');
@@ -86,6 +107,26 @@ function addEventListeners() {
         count: 1,
       };
       const newProducts = await deleteProduct(delete_obj);
+      const brandNewCART = await fetchProducts(info.user.id);
+      console.log(newProducts);
+
+      console.log(newProducts, brandNewCART);
+      const { unique_ids, unique_objs } = removeDupicates(brandNewCART);
+      populate({ unique_objs, unique_ids, info });
+      addEventListeners();
+      const total_container = document.getElementById('total');
+      calculateTotal(brandNewCART, total_container);
+    });
+  });
+  plusElements.forEach((e) => {
+    e.addEventListener('click', async () => {
+      let info = localStorage.getItem('user_info');
+      info = JSON.parse(info);
+      const add_obj = {
+        user_id: info.user.id,
+        product_id: Number(e.getAttribute('productId')),
+      };
+      const newProducts = await addProduct(add_obj);
       const brandNewCART = await fetchProducts(info.user.id);
 
       console.log(newProducts, brandNewCART);

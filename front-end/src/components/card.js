@@ -14,7 +14,7 @@ const card = (item) => {
   <!-- to be generatetd -->
   <img src="./src/assets/images/sofities.jpg" alt="" />
 </div>
-<button class="card-button br-8 bg-yellow">
+<button class="card-button br-8 bg-yellow" productId=${id}>
   Add to cart - $<span class="card-price">${price}</span>
 </button>
 </div>`;
