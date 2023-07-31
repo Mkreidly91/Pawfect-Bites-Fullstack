@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../src/styles/utility.css" />
+    <link rel="stylesheet" href="../src/styles/navbar.css" />
+    <link rel="stylesheet" href="../src/styles/sign-in.css" />
+    <title>Document</title>
+  </head>
+  <body class="flex flex-col">
+    <header>
+      <div class="yellow-strip inter bg-yellow">
+        <div class="">Rated 4.8-stars across 20k+ reviews</div>
+      </div>
+      <nav class="navbar inter">
+        <div class="logo fw-900">Pawfect Bites</div>
+      </nav>
+    </header>
+    <main class="grow flex">
+      <!-- signup -->
+
+      <div class="sign-in-wrapper flex flex-col justify-center items-center">
+        <div class="sign-up-head">
+          <span class="fw-700 sign-up-label">Sign Up</span>
+        </div>
+        <div class="input-form flex flex-col justify-center">
+          <div class="sign-up input-container flex flex-col">
+            <label for="">NAME</label>
+            <input
+              type="text"
+              name=""
+              id="sign-up-name"
+              placeholder="Please Enter your name"
+            />
+          </div>
+          <div class="sign-up input-container flex flex-col">
+            <label for="">EMAIL ADDRESS</label>
+            <input
+              type="text"
+              name=""
+              id="sign-up-email"
+              placeholder="Please Enter your email"
+            />
+          </div>
+          <div class="sign-up input-container flex flex-col">
+            <label for="">PASSWORD</label>
+            <input
+              type="password"
+              name=""
+              id="sign-up-password"
+              placeholder="Please enter your password"
+            />
+            <div id="sign-up-error" class="error"></div>
+            <div class="form-buttons">
+              <button class="form-button" id="sign-up-verify">SIGN UP</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-container flex items-center">
+        <img class="cat-dog" src="../src/assets/images/cat-dog.jpg" alt="" />
+      </div>
+    </main>
+    <footer class="flex justify-center bg-yellow">
+      <div class="footer-socials flex">
+        <div class="footer-social flex justify-center items-center">
+          <img src="../src/assets/icons/socials/insta.svg" alt="" />
+          <div class="social-text flex flex-col">
+            <span class="social-title fw-500"> Instagram </span>
+            <span class="social-tag fw-400"> @PawfectBites</span>
+          </div>
+        </div>
+        <div class="footer-social flex justify-center items-center">
+          <img src="../src/assets/icons/socials/tiktok.svg" alt="" />
+          <div class="social-text flex flex-col">
+            <span class="social-title fw-500"> Tiktok </span>
+            <span class="social-tag fw-400"> @PawfectBites</span>
+          </div>
+        </div>
+        <div class="footer-social flex justify-center items-center">
+          <img src="../src/assets/icons/socials/twitter.svg" alt="" />
+          <div class="social-text flex flex-col">
+            <span class="social-title fw-500"> Twittter </span>
+            <span class="social-tag fw-400"> @PawfectBites</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../src/scripts/sign-up.js"></script>
+  </body>
+</html>

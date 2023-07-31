@@ -9,7 +9,6 @@ textarea {
   border: none;
   border-bottom: 1px solid black;
   background-color: none;
-  /* border-radius: 0.25rem; */
 }
 
 input:focus,
@@ -17,16 +16,19 @@ select:focus,
 textarea:focus {
   outline: none;
 }
+
+.yellow-strip {
+  padding: 1rem;
+  text-align: center;
+}
 .sign-in-wrapper {
-  /* background-color: red; */
   height: 100%;
-  /* border: 1px solid black; */
   gap: 20px;
   width: 50%;
 }
 
 .input-form {
-  gap: 20px;
+  gap: 30px;
   height: 100%;
   border: 1px solid black;
   height: fit-content;
@@ -50,15 +52,27 @@ input::placeholder {
   gap: 5px;
 }
 
-.form-buttons {
+.sign-up-label {
+  font-size: 24px;
+}
+.cat-dog {
+  width: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.doggy {
+  width: 350px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 .form-button {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
+  margin-top: 10px;
 }
 
 footer {
-  padding: 50px 0;
+  padding: 16px 0;
 }
 .footer-socials {
   gap: 48px;
@@ -68,10 +82,10 @@ footer {
   gap: 20px;
 }
 .social-title {
-  font-size: 25px;
+  font-size: 16px;
 }
 .social-tag {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .error {

@@ -18,35 +18,19 @@
   </head>
   <body class="flex flex-col">
     <header>
+      <div class="yellow-strip inter bg-yellow">
+        <div class="">Rated 4.8-stars across 20k+ reviews</div>
+      </div>
       <nav class="navbar flex justify-between items-center inter">
         <div class="logo fw-900">Pawfect Bites</div>
-        <div class="nav-mid flex items-center justify-between">
-          <span class="fw-600">Cats</span>
-          <span class="fw-600">Dogs</span>
-          <span class="fw-600">Accessories</span>
-        </div>
-        <div class="nav-icons flex items-center">
-          <img
-            class="nav-icon"
-            src="../src/assets/icons/nav/tabler-icon-search.svg"
-            alt=""
-          />
-          <img
-            class="nav-icon"
-            src="../src/assets/icons/nav/tabler-icon-user-circle.svg"
-            alt=""
-          />
-          <img
-            class="nav-icon"
-            src="../src/assets/icons/nav/Outlined.svg"
-            alt=""
-          />
-        </div>
       </nav>
     </header>
     <main class="grow flex">
       <!-- Sign in form -->
-      <div class="sign-in-wrapper flex justify-center items-center">
+      <div class="sign-in-wrapper flex flex-col justify-center items-center">
+        <div class="sign-up-head">
+          <span class="fw-700 sign-up-label">Sign Up</span>
+        </div>
         <div class="input-form flex flex-col justify-center">
           <div class="sign-up input-container flex flex-col">
             <label for="">EMAIL ADDRESS</label>
@@ -73,45 +57,12 @@
             </div>
           </div>
         </div>
-        <!-- signup -->
       </div>
-      <div class="sign-in-wrapper flex justify-center items-center">
-        <div class="input-form flex flex-col justify-center">
-          <div class="sign-up input-container flex flex-col">
-            <label for="">NAME</label>
-            <input
-              type="text"
-              name=""
-              id="sign-up-name"
-              placeholder="Please Enter your name"
-            />
-          </div>
-          <div class="sign-up input-container flex flex-col">
-            <label for="">EMAIL ADDRESS</label>
-            <input
-              type="text"
-              name=""
-              id="sign-up-email"
-              placeholder="Please Enter your email"
-            />
-          </div>
-          <div class="sign-up input-container flex flex-col">
-            <label for="">PASSWORD</label>
-            <input
-              type="password"
-              name=""
-              id="sign-up-password"
-              placeholder="Please enter your password"
-            />
-            <div id="sign-up-error" class="error"></div>
-            <div class="form-buttons">
-              <button class="form-button" id="sign-up-verify">SIGN UP</button>
-            </div>
-          </div>
-        </div>
+      <div class="image-container flex items-center">
+        <img class="doggy" src="../src/assets/images/doggy.png" alt="" />
       </div>
     </main>
-    <footer class="flex justify-center bg-yellow-light">
+    <footer class="flex justify-center bg-yellow">
       <div class="footer-socials flex">
         <div class="footer-social flex justify-center items-center">
           <img src="../src/assets/icons/socials/insta.svg" alt="" />

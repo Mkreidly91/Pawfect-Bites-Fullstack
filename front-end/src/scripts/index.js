@@ -16,6 +16,43 @@ const fetchProducts = async (category = '') => {
   }
 };
 
+const fetchFavorites = async (user_id) => {
+  try {
+    const items_req = await fetch(
+      `http://127.0.0.1:8000/api/favourites/get/${user_id}`
+    );
+    const data = await items_req.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const addToFavorites = async ({ product_id, user_id }) => {
+  const items_req = await fetch('http://127.0.0.1:8000/api/favourites/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user_id,
+      product_id,
+    }),
+  });
+};
+const removeFromFavorites = async ({ product_id, user_id }) => {
+  const items_req = await fetch(`http://127.0.0.1:8000/api/favourites/remove`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user_id,
+      product_id,
+    }),
+  });
+};
+
 const addProduct = async (args) => {
   const { user_id, product_id } = args;
 
@@ -27,7 +64,7 @@ const addProduct = async (args) => {
       },
       body: JSON.stringify({
         user_id,
-        product_id: product_id === 0 ? 1 : product_id,
+        product_id: product_id,
       }),
     });
     const newProducts = await items_req.json();
@@ -44,21 +81,30 @@ const populate = (container, data) => {
 };
 
 function addEventListeners() {
+  const info = JSON.parse(localStorage.getItem('user_info'));
   const card_buttons = Array.from(
     document.getElementsByClassName('card-button')
   );
   const favourites = Array.from(document.getElementsByClassName('favourite'));
   favourites.forEach((button) => {
-    button.addEventListener('click', async () => {
-      let info = localStorage.getItem('user_info');
-      info = JSON.parse(info);
-      const add_obj = {
+    button.addEventListener('click', async (e) => {
+      const obj = {
         user_id: info.user.id,
         product_id: Number(e.target.id),
       };
-      console.log(e.target.id);
 
-      // const newProducts = await addToFavorites(add_obj);
+      const favs = document.getElementById('favs');
+      if (favs.classList.contains('active')) {
+        await removeFromFavorites(obj);
+        const products_wrapper = document.getElementById('products_wrapper');
+        const { data } = await fetchFavorites(info.user.id);
+
+        populate(products_wrapper, data);
+        addEventListeners();
+        return;
+      }
+
+      const response = await addToFavorites(obj);
     });
   });
 
@@ -73,19 +119,21 @@ function addEventListeners() {
         user_id: info.user.id,
         product_id: Number(e.target.id),
       };
-      console.log(e.target.id);
+
       const newProducts = await addProduct(add_obj);
     });
   });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const info = JSON.parse(localStorage.getItem('user_info'));
-  console.log(info);
+  const { user } = JSON.parse(localStorage.getItem('user_info'));
+
   const products_wrapper = document.getElementById('products_wrapper');
   const cats = document.getElementById('cats');
   const dogs = document.getElementById('dogs');
   const all = document.getElementById('all');
+  const favs = document.getElementById('favs');
+
   all.classList.add('active');
 
   const data = await fetchProducts();
@@ -96,6 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     cats.classList.add('active');
     dogs.classList.remove('active');
     all.classList.remove('active');
+    favs.classList.remove('active');
 
     const data = await fetchProducts(1);
     populate(products_wrapper, data);
@@ -105,6 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     dogs.classList.add('active');
     cats.classList.remove('active');
     all.classList.remove('active');
+    favs.classList.remove('active');
 
     const data = await fetchProducts(2);
     populate(products_wrapper, data);
@@ -114,8 +164,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     all.classList.add('active');
     cats.classList.remove('active');
     dogs.classList.remove('active');
+    favs.classList.remove('active');
 
     const data = await fetchProducts();
+    populate(products_wrapper, data);
+    addEventListeners();
+  };
+
+  favs.onclick = async () => {
+    favs.classList.add('active');
+    all.classList.remove('active');
+    cats.classList.remove('active');
+    dogs.classList.remove('active');
+
+    const { data } = await fetchFavorites(user.id);
+
     populate(products_wrapper, data);
     addEventListeners();
   };

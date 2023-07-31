@@ -1,6 +1,5 @@
 const card = (item) => {
   const { id, title, description, price, img } = item;
-  console.log(id);
 
   return `<div id=${id} class="card flex flex-col items-center bg-white br-16">
     <div class="card-body flex flex-col">
