@@ -63,7 +63,7 @@ class CartController extends Controller
 
 
         if ($cart) {
-            // If the cart exists, delete the cart item corresponding to the product
+
             $newCart = '';
             if ($count) {
                 $cartItem = $cart->cartItems()
@@ -78,16 +78,11 @@ class CartController extends Controller
                     ->where('product_id', $productId)->delete();
             }
 
-
-
-            // Return a response indicating the product was removed from the cart
             return response()->json([
                 'message' => 'Success',
                 'data' => $cart->cartItems()->with('product')->get()
             ]);
         }
-
-        // Return a response indicating the user's cart was not found
-        return response()->json(['message' => 'Cart not found for the user']);
+        return response()->json(['message' => 'Cart not found']);
     }
 }
