@@ -18,7 +18,6 @@ const fetchProducts = async (category = '') => {
 
 const addProduct = async (args) => {
   const { user_id, product_id } = args;
-  console.log(args);
 
   try {
     const items_req = await fetch(`http://127.0.0.1:8000/api/cart/add`, {
@@ -28,7 +27,7 @@ const addProduct = async (args) => {
       },
       body: JSON.stringify({
         user_id,
-        product_id,
+        product_id: product_id === 0 ? 1 : product_id,
       }),
     });
     const newProducts = await items_req.json();
@@ -48,15 +47,19 @@ function addEventListeners() {
   const card_buttons = Array.from(
     document.getElementsByClassName('card-button')
   );
+
   console.log(card_buttons);
+
   card_buttons.forEach((button) => {
     button.addEventListener('click', async (e) => {
       let info = localStorage.getItem('user_info');
       info = JSON.parse(info);
+
       const add_obj = {
         user_id: info.user.id,
-        product_id: Number(e.target.getAttribute('productId')),
+        product_id: Number(e.target.id),
       };
+      console.log(e.target.id);
       const newProducts = await addProduct(add_obj);
     });
   });

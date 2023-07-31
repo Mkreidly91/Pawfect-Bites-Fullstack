@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   addEventListeners(info);
 });
 
-// Helpers
-
 async function fetchProducts(id = '') {
   try {
     const items_req = await fetch(`http://127.0.0.1:8000/api/cart/${id}`);

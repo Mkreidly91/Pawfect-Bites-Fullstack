@@ -12,10 +12,12 @@
     <header></header>
     <main class="flex inter">
       <div class="sidebar flex flex-col">
-        <div class="logo-wrapper">
-          <div class="logo fw-900 inter">Pawfect</div>
-          <div class="logo fw-900 inter">Bites</div>
-        </div>
+        <a href="../index.html">
+          <div class="logo-wrapper">
+            <div class="logo fw-900 inter">Pawfect</div>
+            <div class="logo fw-900 inter">Bites</div>
+          </div>
+        </a>
         <div class="item-wrapper flex flex-col">
           <div class="sidebar-item flex items-center items-center">
             <img
@@ -36,12 +38,10 @@
               <span class="fw-600">PRODUCTS</span>
             </div>
 
-            <div class="select" id="products-list">
-              <select name="" id="select-products">
-                <option value=""></option>
-                <option value="+">Add product</option>
-              </select>
-            </div>
+            <select class="select" name="" id="select-products">
+              <option value=""></option>
+              <option value="+">Add product</option>
+            </select>
           </div>
           <div class="sidebar-item flex items-center items-center">
             <div class="flex gap-10">
@@ -53,14 +53,12 @@
               <span class="fw-600">CATEGORIES</span>
             </div>
 
-            <div class="select" id="categories-list">
-              <select name="" id="">
-                <option value=""></option>
-                <option value="">All</option>
-                <option value="1">Cat</option>
-                <option value="2">Dog</option>
-              </select>
-            </div>
+            <select class="select" name="" id="category">
+              <option value=""></option>
+              <option value="">All</option>
+              <option value="1">Cat</option>
+              <option value="2">Dog</option>
+            </select>
           </div>
         </div>
       </div>
@@ -91,7 +89,10 @@
 
               <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Category</label>
-                <input type="text" name="" id="category" />
+                <select name="" id="category">
+                  <option value="1">Cat</option>
+                  <option value="2">Dog</option>
+                </select>
               </div>
               <div class="input-container flex flex-col">
                 <label for="" class="fw-600">Price</label>
@@ -105,7 +106,7 @@
             >
               <img
                 class="board-img"
-                src="../src/assets/images/sofities.jpg"
+                src="../src/assets/images/empty.webp"
                 alt=""
                 id="board-img"
               />
@@ -117,11 +118,8 @@
                 required
               />
             </div>
-            <div class="button-container flex">
-              <span class="crud-button inter" id="update">Update</span>
-              <span class="crud-button inter" id="delete">Delete</span>
-              <span class="crud-button inter" id="cancel">Cancel</span>
-            </div>
+            <div id="button-container" class="button-container flex"></div>
+            <div id="error" class="error"></div>
           </div>
         </div>
       </div>

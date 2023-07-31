@@ -1,6 +1,12 @@
 main {
   height: 100%;
 }
+a {
+  text-decoration: none;
+  font: inherit;
+  color: black;
+  cursor: pointer;
+}
 input,
 select,
 textarea {
@@ -56,7 +62,7 @@ textarea {
   gap: 10px;
 }
 
-select {
+.select {
   border: none;
   position: absolute;
   left: 50%;
