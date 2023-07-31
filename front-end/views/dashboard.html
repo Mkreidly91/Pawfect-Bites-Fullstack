@@ -37,9 +37,9 @@
             </div>
 
             <div class="select" id="products-list">
-              <select name="" id="">
+              <select name="" id="select-products">
                 <option value=""></option>
-                <option value="">FRISKIES</option>
+                <option value="+">Add product</option>
               </select>
             </div>
           </div>
@@ -56,6 +56,7 @@
             <div class="select" id="categories-list">
               <select name="" id="">
                 <option value=""></option>
+                <option value="">All</option>
                 <option value="1">Cat</option>
                 <option value="2">Dog</option>
               </select>
@@ -92,10 +93,10 @@
                 <label for="" class="fw-600">Category</label>
                 <input type="text" name="" id="category" />
               </div>
-              <!-- <div class="input-container flex flex-col">
-                <label for="" class="fw-600">Brand Name</label>
-                <input type="text" name="" id="" />
-              </div> -->
+              <div class="input-container flex flex-col">
+                <label for="" class="fw-600">Price</label>
+                <input class="price" type="text" name="" id="price" />
+              </div>
             </div>
           </div>
           <div class="board-right flex flex-col items-center justify-between">
@@ -106,6 +107,7 @@
                 class="board-img"
                 src="../src/assets/images/sofities.jpg"
                 alt=""
+                id="board-img"
               />
               <input
                 id="img-input"

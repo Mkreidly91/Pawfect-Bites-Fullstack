@@ -1,4 +1,22 @@
-const fetchProducts = async (id = '') => {
+document.addEventListener('DOMContentLoaded', async () => {
+  let info = localStorage.getItem('user_info');
+  info = JSON.parse(info);
+
+  const container = document.getElementById('item-container');
+  const total_container = document.getElementById('total');
+
+  const cart = await fetchProducts(info.user.id);
+
+  const { unique_ids, unique_objs } = removeDupicates(cart);
+
+  populate({ container, unique_objs, unique_ids, info });
+  calculateTotal(cart, total_container);
+  addEventListeners(info);
+});
+
+// Helpers
+
+async function fetchProducts(id = '') {
   try {
     const items_req = await fetch(`http://127.0.0.1:8000/api/cart/${id}`);
     const allProducts = await items_req.json();
@@ -10,9 +28,9 @@ const fetchProducts = async (id = '') => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
-const deleteProduct = async (args) => {
+async function deleteProduct(args) {
   const { user_id, product_id, count } = args;
 
   try {
@@ -32,8 +50,8 @@ const deleteProduct = async (args) => {
   } catch (error) {
     console.log(error);
   }
-};
-const addProduct = async (args) => {
+}
+async function addProduct(args) {
   const { user_id, product_id } = args;
 
   try {
@@ -52,7 +70,7 @@ const addProduct = async (args) => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 function countDuplicates(arr) {
   const countObj = {};
@@ -77,7 +95,7 @@ function removeDupicates(cart) {
   return { unique_ids, unique_objs };
 }
 
-const populate = (args) => {
+function populate(args) {
   const { unique_objs, unique_ids } = args;
 
   const container = document.getElementById('item-container');
@@ -86,13 +104,13 @@ const populate = (args) => {
   unique_objs.forEach((element) => {
     container.innerHTML += cartItem(element, unique_ids);
   });
-};
+}
 
-const calculateTotal = (cart, total_container) => {
+function calculateTotal(cart, total_container) {
   let total = 0;
   cart.forEach((item) => (total += Number(item.product.price)));
   total_container.innerText = `$${total}`;
-};
+}
 
 function addEventListeners() {
   const minusElements = Array.from(document.getElementsByClassName('minus'));
@@ -118,6 +136,7 @@ function addEventListeners() {
       calculateTotal(brandNewCART, total_container);
     });
   });
+
   plusElements.forEach((e) => {
     e.addEventListener('click', async () => {
       let info = localStorage.getItem('user_info');
@@ -138,19 +157,3 @@ function addEventListeners() {
     });
   });
 }
-
-document.addEventListener('DOMContentLoaded', async () => {
-  let info = localStorage.getItem('user_info');
-  info = JSON.parse(info);
-
-  const container = document.getElementById('item-container');
-  const total_container = document.getElementById('total');
-
-  const cart = await fetchProducts(info.user.id);
-
-  const { unique_ids, unique_objs } = removeDupicates(cart);
-
-  populate({ container, unique_objs, unique_ids, info });
-  calculateTotal(cart, total_container);
-  addEventListeners(info);
-});
