@@ -1,9 +1,9 @@
 function cartItem(item, uniqueIds) {
-  const { title, price, id } = item;
+  const { title, price, id, image } = item;
 
   return `
     <div class="cart-item flex items-center" id=${id}>
-        <img class="card-img" src="../src/assets/images/sofities.jpg" alt="" />
+        <img class="card-img" src="${image}" alt="" />
         <div class="card-info flex flex-col">
         <div class="card-info-wrapper flex flex-col">
         <span class="title fw-800 ">${title}</span>
