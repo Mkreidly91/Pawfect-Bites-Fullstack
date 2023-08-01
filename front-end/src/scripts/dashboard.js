@@ -1,11 +1,13 @@
 let selectedProduct;
 let selectedImage;
 let category_id;
+let category_added;
 
 document.addEventListener('DOMContentLoaded', async () => {
   const input_title = document.getElementById('title');
   const input_description = document.getElementById('description');
   const input_category = document.getElementById('category');
+  const change_category = document.getElementById('change-category');
   const input_price = document.getElementById('price');
   const img = document.getElementById('board-img');
 
@@ -14,12 +16,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     const products = await fetchByCategory(value);
     populateOptions(products);
   });
-
+  change_category.addEventListener('change', async (e) => {
+    const value = e.target.value;
+    category_added = e.target.value;
+  });
   document
     .getElementById('img-input')
     .addEventListener('change', handleFileSelect);
   const select_product = document.getElementById('select-products');
   resetPage();
+
   select_product.addEventListener('change', async (e) => {
     const value = e.target.value;
     if (!value) return;
@@ -36,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   const allProducts = await fetchProducts();
-  console.log(allProducts);
+
   populateOptions(allProducts);
 });
 
@@ -54,7 +60,7 @@ function populateOptions(productArr) {
 function fillPage(title, description, category, price, image) {
   const input_title = document.getElementById('title');
   const input_description = document.getElementById('description');
-  const input_category = document.getElementById('category');
+  const input_category = document.getElementById('change-category');
   const input_price = document.getElementById('price');
   const img = document.getElementById('board-img');
   const button_container = document.getElementById('button-container');
@@ -72,9 +78,9 @@ function fillPage(title, description, category, price, image) {
       const body = {
         title: input_title.value,
         description: input_description.value,
-        productId: selectedProduct,
         price: input_price.value,
         img: selectedImage,
+        category_id: category_added,
       };
 
       const res = await updateProduct(selectedProduct, body);
@@ -96,6 +102,7 @@ function resetPage() {
   const input_title = document.getElementById('title');
   const input_description = document.getElementById('description');
   const input_category = document.getElementById('category');
+  const change_category = document.getElementById('change-category');
   const input_price = document.getElementById('price');
   const button_container = document.getElementById('button-container');
   const fileInput = document.getElementById('img-input').files[0];
@@ -105,6 +112,7 @@ function resetPage() {
   input_description.value = '';
   input_category.value = '';
   input_price.value = '';
+  change_category.value = '';
 
   button_container.innerHTML = `<span class="crud-button inter" id="add">add</span>`;
   document.getElementById('add').addEventListener('click', async () => {
@@ -117,19 +125,20 @@ function resetPage() {
         description: input_description.value,
         price: Number(input_price.value),
         img: selectedImage,
-        category_id: input_category.value,
+        category_id: category_added,
       };
       console.log(body);
 
       const response = await addNewProduct(body);
-      location.reload();
+      console.log(response);
+      // location.reload();
     } catch (error) {
       console.log(error);
     }
   });
 }
 
-function handleFileSelect(event) {
+async function handleFileSelect(event) {
   const file = event.target.files[0];
   if (!file) return;
 
@@ -147,7 +156,7 @@ function handleFileSelect(event) {
 function checkAddFields() {
   const input_title = document.getElementById('title').value;
   const input_description = document.getElementById('description').value;
-  const input_category = document.getElementById('category').value;
+  const input_category = document.getElementById('change-category').value;
   const input_price = document.getElementById('price').value;
   const input_file = document.getElementById('img-input').files[0];
   const arr = [

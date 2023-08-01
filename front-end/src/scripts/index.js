@@ -85,8 +85,11 @@ function addEventListeners() {
     document.getElementsByClassName('card-button')
   );
   const favourites = Array.from(document.getElementsByClassName('favourite'));
+
   favourites.forEach((button) => {
     button.addEventListener('click', async (e) => {
+      console.log('hello');
+
       const obj = {
         user_id: info.user.id,
         product_id: Number(e.target.id),
@@ -123,7 +126,8 @@ function addEventListeners() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log(user);
+  const { user } = JSON.parse(localStorage.getItem('user_info'));
+
   const products_wrapper = document.getElementById('products_wrapper');
   const cats = document.getElementById('cats');
   const dogs = document.getElementById('dogs');
@@ -174,7 +178,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     dogs.classList.remove('active');
 
     const { data } = await fetchFavorites(user.id);
-
     populate(products_wrapper, data);
     addEventListeners();
   };

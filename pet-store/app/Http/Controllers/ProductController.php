@@ -53,7 +53,6 @@ class ProductController extends Controller
     {
 
         $title = $request->input("title");
-
         $description = $request->input("description");
         $price = $request->input("price");
         $img = $request->input("img");
@@ -89,7 +88,7 @@ class ProductController extends Controller
         $description = $request->input("description");
         $price = $request->input("price");
         $img = $request->input("img");
-        $category = $request->input("productId");
+        $category = $request->input("category_id");
 
         if ($title) {
             $product->title = $title;

@@ -117,6 +117,7 @@ body {
 }
 .card-body {
   position: relative;
+  flex-grow: 1;
 }
 .card-info {
   opacity: 0;

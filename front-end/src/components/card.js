@@ -1,5 +1,5 @@
 const card = (item) => {
-  const { id, title, description, price, img } = item;
+  const { id, title, description, price, image } = item;
 
   return `<div id=${id} class="card flex flex-col items-center bg-white br-16">
     <div class="card-body flex flex-col">
@@ -13,8 +13,8 @@ const card = (item) => {
     
   </div>
 
-  <!-- to be generatetd -->
-  <img src="./src/assets/images/sofities.jpg" alt="" />
+  
+  <img src=${image} alt="" />
 </div>
 <button class="card-button br-8 bg-yellow" id="${id}">
   Add to cart - $<span class="card-price">${price}</span>
